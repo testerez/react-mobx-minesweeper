@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "removeComments": false,
+    "jsx": "react"
+  },
+  "awesomeTypescriptLoaderOptions": {
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
