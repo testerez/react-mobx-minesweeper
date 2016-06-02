@@ -1,0 +1,28 @@
+{
+  "name": "react-ts",
+  "version": "1.0.0",
+  "description": "A react starter project using typescript",
+  "main": "dist/index.html",
+  "scripts": {
+    "start": "hjs-dev-server",
+    "build": "webpack",
+    "deploy": "npm run build && surge -p public -d somedomain.com",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tom Esterez",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^6.3.6",
+    "awesome-typescript-loader": "^0.17.0",
+    "css-loader": "^0.23.1",
+    "hjs-webpack": "^8.2.0",
+    "json-loader": "^0.5.4",
+    "node-sass": "^3.7.0",
+    "postcss-loader": "^0.9.1",
+    "sass-loader": "^3.2.0",
+    "style-loader": "^0.13.1",
+    "tslint": "^3.10.2",
+    "typescript": "^1.8.10",
+    "webpack": "^1.13.1"
+  }
+}
