@@ -5,3 +5,5 @@ Todo:
 - end to end tests
 - polyfills
 - isdev
+- CSS
+- Static resources
