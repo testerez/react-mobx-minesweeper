@@ -24,7 +24,8 @@
     "tslint": "^3.10.2",
     "typescript": "^1.8.10",
     "typings": "^1.0.4",
-    "webpack": "^1.13.1"
+    "webpack": "^1.13.1",
+    "webpack-build-notifier": "^0.1.8"
   },
   "dependencies": {
     "react": "^15.1.0",

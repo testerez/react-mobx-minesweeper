@@ -1,11 +1,17 @@
 var getConfig = require('hjs-webpack');
-
+var WebpackBuildNotifierPlugin = require('webpack-build-notifier');
 
 var config = getConfig({
   in: 'src/index.tsx',
   out: 'dist',
   clearBeforeBuild: true
 });
+
+config.plugins.push(new WebpackBuildNotifierPlugin({
+  title: 'webpack',
+  successSound: false,
+  suppressSuccess: true,
+}));
 
 
 // Typescript config adjustments.
