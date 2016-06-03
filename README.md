@@ -5,4 +5,3 @@ Todo:
 - polyfills
 - isdev
 - notify on build errors
-- Fix hot reload
