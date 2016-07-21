@@ -3,7 +3,8 @@
     "module": "commonjs",
     "noImplicitAny": true,
     "removeComments": false,
-    "jsx": "react"
+    "jsx": "react",
+    "sourceMap": true
   },
   "awesomeTypescriptLoaderOptions": {
   },
