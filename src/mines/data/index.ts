@@ -4,7 +4,7 @@ import {observable} from 'mobx';
 
 export default class{
   @observable config = Config.easy;
-  @observable game: Game | null;
+  @observable game = new Game(this.config);
 
   newGame(){
     this.game = new Game(this.config);

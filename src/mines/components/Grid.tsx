@@ -8,8 +8,5 @@ interface IProps{
 }
 
 export default observer(function({data}: IProps) {
-  if(!data.game){
-    return <div>click new game to begin</div>;
-  }
   return <pre>{JSON.stringify(data.game, null, 2)}</pre>;
 })
