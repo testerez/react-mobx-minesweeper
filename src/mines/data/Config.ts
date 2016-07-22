@@ -1,7 +1,7 @@
 export interface IGameConfig{
-  width: number;
-  height: number;
-  mines: number;
+  readonly width: number;
+  readonly height: number;
+  readonly mines: number;
 }
 
 export const easy: IGameConfig = {

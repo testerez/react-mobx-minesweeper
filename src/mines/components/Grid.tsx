@@ -8,5 +8,6 @@ interface IProps{
 }
 
 export default function({game, config}: IProps) {
+  config.height = 0;
   return <noscript/>;
 }
