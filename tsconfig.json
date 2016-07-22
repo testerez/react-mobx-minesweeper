@@ -2,9 +2,12 @@
   "compilerOptions": {
     "module": "commonjs",
     "noImplicitAny": true,
+    "noImplicitReturns": true,
     "removeComments": false,
     "jsx": "react",
-    "sourceMap": true
+    "sourceMap": true,
+    "strictNullChecks": true,
+    "pretty": true
   },
   "awesomeTypescriptLoaderOptions": {
   },

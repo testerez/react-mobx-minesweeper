@@ -10,9 +10,12 @@ function createGame(layout: string[]){
         .map((s, i) => new Square(i, s == 'x'));
 
     return new Game(
-        layout[0].split(' ').length,
-        layout.length,
-        squares
+      {
+        width: layout[0].split(' ').length,
+        height: layout.length,
+        mines: squares.filter(s => s.hasMine).length,
+      },
+      squares
     );
 }
 
@@ -33,21 +36,33 @@ describe('MinesGame', () => {
     });
 
     it('creates a 1x1 grid', () => {
-      const game = Game.create(1, 1, 1);
+      const game = new Game({
+        width:1,
+        height:1,
+        mines:1,
+      });
       expect(game._getSquares().length).to.equal(1);
       expect(game._getSquares()[0].hasMine).to.be.true;
     });
 
     it('creates a 1x1 grid with no mine', () => {
-        const game = Grid.create(1, 1, 0);
-        expect(game._getSquares().length).to.equal(1);
-        expect(game._getSquares()[0].hasMine).to.be.false;
+        const game = new Game({
+        width:1,
+        height:1,
+        mines:0,
+      });
+      expect(game._getSquares().length).to.equal(1);
+      expect(game._getSquares()[0].hasMine).to.be.false;
     });
 
     it('creates a 1000x1000 grid', () => {
-        const game = Grid.create(1000, 1000, 100);
-        expect(game._getSquares().length).to.equal(1000*1000);
-        expect(game.minesCount).to.equal(100);
+      const game = new Game({
+        width:1000,
+        height:1000,
+        mines:100,
+      });
+      expect(game._getSquares().length).to.equal(1000*1000);
+      expect(game.config.mines).to.equal(100);
     });
 
     it('counts surrounding mines', () => {

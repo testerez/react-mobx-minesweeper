@@ -9,7 +9,8 @@
     "deploy": "npm run build && surge -p public -d somedomain.com",
     "test": "karma start",
     "test:single": "karma start  --single-run",
-    "postinstall": "typings install"
+    "postinstall": "typings install",
+    "check": "tsc --noEmit"
   },
   "author": "Tom Esterez",
   "license": "ISC",
@@ -39,7 +40,7 @@
     "style-loader": "^0.13.1",
     "ts-loader": "^0.8.2",
     "tslint": "^3.10.2",
-    "typescript": "^1.8.10",
+    "typescript": "^2.0.0",
     "typings": "^1.3.2",
     "webpack": "^1.13.1",
     "webpack-build-notifier": "^0.1.8"
