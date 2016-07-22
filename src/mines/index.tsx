@@ -14,8 +14,7 @@ export default class extends React.Component<{}, {}> {
           onNewGame={data.newGame.bind(data)}
         />
         <Grid
-          game={data.game}
-          config={data.game ? data.game.config : data.config}
+          data={data}
         />
       </div>
     );

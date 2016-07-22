@@ -1,13 +1,15 @@
 import * as React from 'react';
 import Game from '../data/Game';
-import {IGameConfig} from '../data/Config';
+import Data from '../data';
+import {observer} from 'mobx-react';
 
 interface IProps{
-  game: Game | null;
-  config: IGameConfig;
+  data: Data;
 }
 
-export default function({game, config}: IProps) {
-  config.height = 0;
-  return <noscript/>;
-}
+export default observer(function({data}: IProps) {
+  if(!data.game){
+    return <div>click new game to begin</div>;
+  }
+  return <pre>{JSON.stringify(data.game, null, 2)}</pre>;
+})

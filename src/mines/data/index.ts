@@ -1,9 +1,10 @@
 import * as Config from './Config';
 import Game from './Game';
+import {observable} from 'mobx';
 
 export default class{
-  config = Config.easy;
-  game: Game | null;
+  @observable config = Config.easy;
+  @observable game: Game | null;
 
   newGame(){
     this.game = new Game(this.config);
