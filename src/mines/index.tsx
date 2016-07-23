@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Menu from './components/Menu';
-import Grid from './components/Grid';
+import Board from './components/Board';
 import Data from './data';
 import {observer} from 'mobx-react';
 
@@ -16,7 +16,7 @@ export default class extends React.Component<{}, {}> {
           config={data.config}
           onNewGame={data.newGame.bind(data)}
         />
-        <Grid
+        <Board
           game={data.game}
         />
       </div>

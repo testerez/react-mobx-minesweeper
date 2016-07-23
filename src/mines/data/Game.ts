@@ -1,4 +1,4 @@
-import Square from './Square';
+import Box from './Box';
 import {chain, range, every} from 'lodash';
 import {IGameConfig} from './Config';
 import {observable, computed, action} from 'mobx';
@@ -6,11 +6,11 @@ import {observable, computed, action} from 'mobx';
 export default class MinesGame {
   @observable isWon = false;
   @observable isLost = false;
-  @observable squares: Square[];
+  @observable boxes: Box[];
 
   constructor(
     public config: IGameConfig,
-    squares: Square[] | null = null
+    boxes: Box[] | null = null
   ) {
     const {
       width,
@@ -18,23 +18,23 @@ export default class MinesGame {
       mines,
     } = config;
 
-    if (!squares) {
-      squares = chain(range(0, width * height))
+    if (!boxes) {
+      boxes = chain(range(0, width * height))
         .map(i => i < mines)
         .shuffle()
-        .map((hasMine, i) => new Square(i, hasMine))
+        .map((hasMine, i) => new Box(i, hasMine))
         .value();
-    } else if (squares.length != config.width * config.height) {
-      throw new Error('Invalid squares length');
+    } else if (boxes.length != config.width * config.height) {
+      throw new Error('Invalid boxes length');
     }
-    this.squares = squares;
+    this.boxes = boxes;
   }
 
   private revealArround(position:number){
     if(this.getAreaMinesCount(position)){
       return;
     }
-    this.getAreaSquares(position)
+    this.getAreaboxes(position)
       .filter(s => !s.isRevealed)
       .forEach(s => {
         s.isRevealed = true;
@@ -44,28 +44,28 @@ export default class MinesGame {
 
   @action
   reveal(position: number) {
-    const square = this.squares[position];
+    const box = this.boxes[position];
 
-    square.isRevealed = true;
+    box.isRevealed = true;
 
     // You loose?
-    if (square.hasMine) {
+    if (box.hasMine) {
       this.isLost = true;
-      this.squares.forEach(s => s.isRevealed = true);
+      this.boxes.forEach(s => s.isRevealed = true);
       return;
     }
 
     this.revealArround(position);
 
     // You win?
-    this.isWon = every(this.squares, s =>
+    this.isWon = every(this.boxes, s =>
       s.isRevealed == !s.hasMine
     );
   }
 
 
 
-  getAreaSquares(centerPosition: number) {
+  getAreaboxes(centerPosition: number) {
     const {width, height} = this.config;
     const {x, y} = this.positionToXy(centerPosition);
 
@@ -74,18 +74,18 @@ export default class MinesGame {
     const yMin = Math.max(0, y - 1);
     const yMax = Math.min(height - 1, y + 1);
 
-    const result: Square[] = [];
+    const result: Box[] = [];
     for (let x2 = xMin; x2 <= xMax; x2++) {
       for (let y2 = yMin; y2 <= yMax; y2++) {
-        result.push(this.getSquare(x2, y2));
+        result.push(this.getBox(x2, y2));
       }
     }
     return result;
   }
 
   getAreaMinesCount(centerPosition: number) {
-    return this.getAreaSquares(centerPosition)
-      .filter(square => square.hasMine)
+    return this.getAreaboxes(centerPosition)
+      .filter(box => box.hasMine)
       .length;
   }
 
@@ -109,8 +109,8 @@ export default class MinesGame {
     };
   }
 
-  getSquare(x: number, y: number) {
-    return this.squares[
+  getBox(x: number, y: number) {
+    return this.boxes[
       this.xyToPosition(x, y)
     ];
   }
@@ -119,7 +119,7 @@ export default class MinesGame {
     const {width, height} = this.config;
     return range(0, height).map(y => {
       const start = y * width;
-      return this.squares.slice(start, start + width)
+      return this.boxes.slice(start, start + width)
     });
   }
 }

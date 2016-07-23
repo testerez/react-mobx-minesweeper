@@ -1,7 +1,7 @@
 import {observable} from 'mobx';
 
 
-export default class Square{
+export default class{
   @observable position: number;
   @observable hasMine: boolean;
   @observable isRevealed: boolean = false;

@@ -1,26 +1,26 @@
 import * as React from 'react';
 import Game from '../data/Game';
-import Square from '../data/Square';
+import Box from '../data/Box';
 import {observer} from 'mobx-react';
 
 interface IProps{
   game: Game,
-  square: Square,
+  box: Box,
 }
 
-function getLetter({position, hasMine, isRevealed, isFlagged}: Square, game: Game){
+function getLetter({position, hasMine, isRevealed, isFlagged}: Box, game: Game){
   if(isRevealed){
     return hasMine ? 'X' : game.getAreaMinesCount(position);
   }
   return isFlagged ? 'F' : ' ';
 }
 
-export default observer<IProps>(function({game, square}: IProps){
+export default observer<IProps>(function({game, box}: IProps){
   const props: React.HTMLProps<HTMLButtonElement> = {
-    onClick: () => game.reveal(square.position),
+    onClick: () => game.reveal(box.position),
     onContextMenu: e => {
       console.log('right click');
-      square.isFlagged = !square.isFlagged;
+      box.isFlagged = !box.isFlagged;
       e.preventDefault();
     },
     style: {
@@ -28,10 +28,10 @@ export default observer<IProps>(function({game, square}: IProps){
       height:'30px',
       verticalAlign:'bottom',
     },
-  }
+  };
   return(
     <button {...props}>
-      {getLetter(square, game)}
+      {getLetter(box, game)}
     </button>
   );
 })
