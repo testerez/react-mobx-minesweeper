@@ -2,11 +2,14 @@ import * as React from 'react';
 import Menu from './components/Menu';
 import Grid from './components/Grid';
 import Data from './data';
+import {observer} from 'mobx-react';
 
-const data = new Data();
-
+@observer
 export default class extends React.Component<{}, {}> {
+  data = new Data();
+
   render() {
+    const data = this.data;
     return (
       <div>
         <Menu
@@ -14,7 +17,7 @@ export default class extends React.Component<{}, {}> {
           onNewGame={data.newGame.bind(data)}
         />
         <Grid
-          data={data}
+          game={data.game}
         />
       </div>
     );

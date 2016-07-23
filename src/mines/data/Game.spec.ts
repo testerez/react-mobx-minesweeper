@@ -41,8 +41,8 @@ describe('MinesGame', () => {
         height:1,
         mines:1,
       });
-      expect(game._getSquares().length).to.equal(1);
-      expect(game._getSquares()[0].hasMine).to.be.true;
+      expect(game.squares.length).to.equal(1);
+      expect(game.squares[0].hasMine).to.be.true;
     });
 
     it('creates a 1x1 grid with no mine', () => {
@@ -51,8 +51,8 @@ describe('MinesGame', () => {
         height:1,
         mines:0,
       });
-      expect(game._getSquares().length).to.equal(1);
-      expect(game._getSquares()[0].hasMine).to.be.false;
+      expect(game.squares.length).to.equal(1);
+      expect(game.squares[0].hasMine).to.be.false;
     });
 
     it('creates a 1000x1000 grid', () => {
@@ -61,7 +61,7 @@ describe('MinesGame', () => {
         height:1000,
         mines:100,
       });
-      expect(game._getSquares().length).to.equal(1000*1000);
+      expect(game.squares.length).to.equal(1000*1000);
       expect(game.config.mines).to.equal(100);
     });
 
@@ -86,7 +86,7 @@ describe('MinesGame', () => {
         checkCount(2, 1, 4);
     });
 
-    it('can win', () => {
+    it('wins', () => {
         const game = createGame([
             'x o o',
             'o o x',
@@ -99,7 +99,7 @@ describe('MinesGame', () => {
         expect(game.isLost).to.be.false;
     });
 
-    it('can loose', () => {
+    it('looses', () => {
         const game = createGame([
             'x o o',
             'o o x',
@@ -110,5 +110,17 @@ describe('MinesGame', () => {
         game.reveal(0);
         expect(game.isWon).to.be.false;
         expect(game.isLost).to.be.true;
+        game.squares.forEach(s => expect(s.isRevealed).to.true);
+    });
+
+    it('gets lines', () => {
+        const game = new Game({
+          width:5,
+          height:10,
+          mines:10,
+        });
+        const lines = game.getLines();
+        expect(lines.length).to.eq(10);
+        lines.forEach(l => expect(l.length).to.eq(5));
     });
 });

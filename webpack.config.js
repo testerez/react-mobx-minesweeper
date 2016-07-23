@@ -4,7 +4,7 @@ var WebpackBuildNotifierPlugin = require('webpack-build-notifier');
 var config = getConfig({
   in: 'src/index.tsx',
   out: 'dist',
-  clearBeforeBuild: true
+  clearBeforeBuild: true,
 });
 
 

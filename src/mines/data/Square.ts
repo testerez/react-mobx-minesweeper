@@ -1,13 +1,21 @@
+import {observable} from 'mobx';
+
 
 export default class Square{
-
+  @observable position: number;
+  @observable hasMine: boolean;
+  @observable isRevealed: boolean = false;
+  @observable isFlagged: boolean = false;
 
   constructor(
-    public position: number,
-    public hasMine: boolean,
-    public isRevealed: boolean = false,
-    public isFlagged: boolean = false
+    position: number,
+    hasMine: boolean,
+    isRevealed: boolean = false,
+    isFlagged: boolean = false
   ){
-
+    this.position = position;
+    this.hasMine = hasMine;
+    this.isRevealed = isRevealed;
+    this.isFlagged = isFlagged;
   }
 }

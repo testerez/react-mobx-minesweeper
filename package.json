@@ -29,6 +29,7 @@
     "karma-sinon": "^1.0.5",
     "karma-typescript-preprocessor2": "^1.2.1",
     "karma-webpack": "^1.7.0",
+    "mobx-react-devtools": "^4.2.3",
     "mocha": "^2.5.3",
     "node-sass": "^3.7.0",
     "phantomjs-prebuilt": "^2.1.7",
