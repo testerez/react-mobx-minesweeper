@@ -8,6 +8,10 @@ export default class MinesGame {
   @observable isLost = false;
   @observable boxes: Box[];
 
+  isOver(){
+    return this.isWon || this.isLost;
+  }
+
   constructor(
     public config: IGameConfig,
     boxes: Box[] | null = null
@@ -44,6 +48,9 @@ export default class MinesGame {
 
   @action
   reveal(position: number) {
+    if(this.isOver()){
+      return;
+    }
     const box = this.boxes[position];
 
     box.isRevealed = true;
