@@ -1,0 +1,8 @@
+@import "./variables.scss";
+
+.game{
+  padding: 10px;
+  background: $background;
+  border:4px outset;
+  display: inline-block;
+}

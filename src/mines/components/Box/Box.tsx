@@ -3,7 +3,7 @@ import Game from '../../data/Game';
 import Box from '../../data/Box';
 import {observer} from 'mobx-react';
 import * as classnames from 'classnames';
-const styles = require<any>('./Box.scss');
+const styles = require('./Box.scss');
 
 const colors: {[id:number]:string} = {
   1: '#333bbd',

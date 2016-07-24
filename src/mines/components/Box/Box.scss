@@ -1,11 +1,11 @@
-$size: 30px;
+@import "../../variables.scss";
 
 .box{
   border: 2px outset;
-  background: #d0d0d0;
-  width: $size;
-  height: $size;
-  line-height: $size;
+  background: $background;
+  width: $boxSize;
+  height: $boxSize;
+  line-height: $boxSize;
   outline: none;
   font-weight: bold;
   font-size: 16px;
@@ -35,12 +35,6 @@ $size: 30px;
   background-color: #ccc;
   border: 1px solid #aaa;
   border-width: 0 1px 1px 0;
-  &:last-child{
-    border-right: none;
-  }
-  :last-child > &{
-    border-bottom: none;
-  }
 }
 
 .fail{
