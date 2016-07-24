@@ -54,13 +54,13 @@ describe('MinesGame', () => {
       expect(game.boxes[0].hasMine).to.be.false;
     });
 
-    it('creates a 1000x1000 board', () => {
+    it('creates a 100x100 board', () => {
       const game = new Game({
-        width:1000,
-        height:1000,
+        width:100,
+        height:100,
         mines:100,
       });
-      expect(game.boxes.length).to.equal(1000*1000);
+      expect(game.boxes.length).to.equal(100*100);
       expect(game.config.mines).to.equal(100);
     });
 

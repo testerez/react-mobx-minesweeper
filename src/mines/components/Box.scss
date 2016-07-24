@@ -1,0 +1,40 @@
+$size: 30px;
+
+.box{
+  border: 2px outset;
+  background: #d0d0d0;
+  width: $size;
+  height: $size;
+  vertical-align: bottom;
+  outline: none;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.mine{
+  background: {
+    image: url(https://gitlab.com/uploads/project/avatar/694008/icon.png);
+    position: center;
+    repeat: no-repeat;
+    size: 75%;
+  }
+}
+
+.flag{
+  background: {
+    image: url(https://twemoji.maxcdn.com/36x36/1f6a9.png);
+    position: center;
+    repeat: no-repeat;
+    size: 75%;
+  }
+}
+
+.revealed{
+  border: 1px solid #aaa;
+  background-color: #ccc;
+}
+
+.fail{
+  background-color: red;
+}
+

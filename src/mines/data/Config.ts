@@ -7,7 +7,7 @@ export interface IGameConfig{
 export const easy: IGameConfig = {
   width: 10,
   height: 10,
-  mines: 10,
+  mines: 15,
 };
 export const medium: IGameConfig = {
   width: 20,

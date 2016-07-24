@@ -51,7 +51,6 @@ export default class MinesGame {
     // You loose?
     if (box.hasMine) {
       this.isLost = true;
-      this.boxes.forEach(s => s.isRevealed = true);
       return;
     }
 

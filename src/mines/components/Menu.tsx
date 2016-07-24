@@ -1,17 +1,23 @@
 import * as React from 'react';
-import {IGameConfig} from '../data/Config';
+import Data from '../data';
+import {observer} from 'mobx-react';
 
 interface IProps{
-  config: IGameConfig,
-  onNewGame: Function,
+  data: Data,
 }
 
-export default function({config, onNewGame} : IProps) {
+export default observer(function({data} : IProps) {
     return (
       <div>
-        <button onClick={onNewGame}>
-          New game
+        <button onClick={data.newGame}>
+          New game...
         </button>
+        {data.game.isWon && (
+          'You win!!!'
+        )}
+        {data.game.isLost && (
+          'You loose :('
+        )}
       </div>
     );
-}
+});

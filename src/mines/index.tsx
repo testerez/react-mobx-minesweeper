@@ -12,13 +12,8 @@ export default class extends React.Component<{}, {}> {
     const data = this.data;
     return (
       <div>
-        <Menu
-          config={data.config}
-          onNewGame={data.newGame.bind(data)}
-        />
-        <Board
-          game={data.game}
-        />
+        <Menu data={data}/>
+        <Board game={data.game} />
       </div>
     );
   }
