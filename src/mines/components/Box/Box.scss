@@ -9,11 +9,13 @@ $size: 30px;
   outline: none;
   font-weight: bold;
   font-size: 16px;
+  padding: 0;
+  margin: 0;
 }
 
 .mine{
   background: {
-    image: url(https://gitlab.com/uploads/project/avatar/694008/icon.png);
+    image: url(./mine.png);
     position: center;
     repeat: no-repeat;
     size: 75%;
@@ -22,7 +24,7 @@ $size: 30px;
 
 .flag{
   background: {
-    image: url(https://twemoji.maxcdn.com/36x36/1f6a9.png);
+    image: url(./flag.png);
     position: center;
     repeat: no-repeat;
     size: 75%;
