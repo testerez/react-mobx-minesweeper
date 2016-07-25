@@ -6,7 +6,7 @@ import * as classnames from 'classnames';
 const styles = require('./Box.scss');
 
 const colors: {[id:number]:string} = {
-  1: '#333bbd',
+  1: '#0b24fa',
   2: '#338938',
   3: '#f21923',
   4: '#090982',
