@@ -32,11 +32,16 @@ module.exports = {
   devtool: "source-map",
   module: {
     loaders: [
-      { test: /\.tsx?$/, loader: "react-hot!awesome-typescript-loader" },
+      { test: /\.tsx?$/, loader: "react-hot!awesome-typescript" },
       { test: /\.json$/, loader: "json" },
-      { test: /\.scss$/, loader: "style-loader!css-loader?modules!postcss-loader!sass?sourceMap" },
-      { test: /\.(png|svg)$/, loader: "url-loader?limit=100000" },
-      { test: /\.jpg$/, loader: "file-loader" },
+      { test: /\.scss$/, loaders: [
+        'style?sourceMap',
+        'css?sourceMap&modules&importLoaders=1&localIdentName=[path]_[name]_[local]_[hash:base64:5]',
+        'postcss',
+        'sass?sourceMap',
+      ]},
+      { test: /\.(png|svg)$/, loader: "url?limit=100000" },
+      { test: /\.jpg$/, loader: "file" },
     ],
   },
   postcss: () => [autoprefixer],

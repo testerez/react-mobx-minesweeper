@@ -4,8 +4,7 @@ Todo:
 - end to end tests
 - polyfills
 - isdev
-- Static resources
-- fix sourcemaps (scss, tests...)
+- fix sourcemaps (tests...)
 - fix ezyme errors
-- test component
+- test components
 - drop unused node modules
