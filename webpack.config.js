@@ -35,7 +35,7 @@ module.exports = {
       { test: /\.tsx?$/, loader: "react-hot!awesome-typescript-loader" },
       { test: /\.json$/, loader: "json" },
       { test: /\.scss$/, loader: "style-loader!css-loader?modules!postcss-loader!sass?sourceMap" },
-      { test: /\.png$/, loader: "url-loader?limit=100000" },
+      { test: /\.(png|svg)$/, loader: "url-loader?limit=100000" },
       { test: /\.jpg$/, loader: "file-loader" },
     ],
   },

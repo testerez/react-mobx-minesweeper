@@ -1,0 +1,14 @@
+@import '../../variables';
+
+$size: 40px;
+.smiley{
+  width: $size;
+  height: $size;
+  background: $background;
+  border: 2px outset;
+  padding: 5px;
+  outline: none;
+  &:active{
+    border-style: inset;
+  }
+}
