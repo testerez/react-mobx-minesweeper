@@ -1,3 +1,5 @@
+Setup: `npm i && npm start`
+
 Todo:
 - linter
 - precommit lint
