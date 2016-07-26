@@ -109,7 +109,6 @@ describe('MinesGame', () => {
         game.reveal(0);
         expect(game.isWon).to.be.false;
         expect(game.isLost).to.be.true;
-        game.boxes.forEach(s => expect(s.isRevealed).to.true);
     });
 
     it('gets lines', () => {
