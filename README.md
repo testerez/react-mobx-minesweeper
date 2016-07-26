@@ -6,7 +6,7 @@ Todo:
 - end to end tests
 - polyfills
 - isdev
-- fix sourcemaps (tests...)
+- fix sourcemap in karma tests
 - fix ezyme errors
 - test components
 - drop unused node modules

@@ -1,16 +1,16 @@
 var webpackConfig = require('./webpack.config');
 
+const specPattern = '**/*.spec.@(ts|tsx)';
+
 module.exports = function (config) {
   config.set({
     basePath: '',
     frameworks: ['mocha', 'chai', 'sinon'],
-    files: [
-      '**/*.spec.@(ts|tsx)',
-    ],
+    files: [specPattern],
     exclude: [
     ],
     preprocessors: {
-      '**/*.@(ts|tsx)': ['webpack'],
+      [specPattern]: ['webpack'],
     },
     webpack: {
       module: webpackConfig.module,
