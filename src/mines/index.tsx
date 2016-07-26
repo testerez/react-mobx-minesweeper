@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Menu from './components/Menu/Menu';
 import Board from './components/Board';
-import Data from './data';
+import Data from './data/Data';
 import {observer} from 'mobx-react';
 const styles = require('./game.scss');
 

@@ -10,7 +10,7 @@ export default class{
   constructor(
     position: number,
     hasMine: boolean,
-  ){
+  ) {
     this.position = position;
     this.hasMine = hasMine;
   }

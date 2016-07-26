@@ -8,7 +8,7 @@ export default class{
   @observable config = Config.easy;
   @observable game = new Game(this.config);
 
-  newGame(){
+  newGame() {
     this.game = new Game(this.config);
   }
 }

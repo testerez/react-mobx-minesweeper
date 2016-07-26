@@ -1,4 +1,4 @@
-export interface IGameConfig{
+export interface IGameConfig {
   readonly width: number;
   readonly height: number;
   readonly mines: number;

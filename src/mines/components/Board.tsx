@@ -5,11 +5,11 @@ import Box from './Box/Box';
 const styles = require('./Board.scss');
 
 
-interface IProps{
+interface IProps {
   game: Game;
 }
 
-export default observer<IProps>(function({game}: IProps) {
+export default observer<IProps>(({game}: IProps) => {
   return (
     <div className={styles.board}>{
       game.getLines().map((l, i) => (

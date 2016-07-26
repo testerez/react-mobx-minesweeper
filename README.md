@@ -1,7 +1,6 @@
 Setup: `npm i && npm start`
 
 Todo:
-- linter
 - precommit lint
 - end to end tests
 - polyfills

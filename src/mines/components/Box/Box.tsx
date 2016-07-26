@@ -5,7 +5,7 @@ import {observer} from 'mobx-react';
 import * as classnames from 'classnames';
 const styles = require('./Box.scss');
 
-const colors: {[id:number]:string} = {
+const colors: {[id: number]: string} = {
   1: '#0b24fa',
   2: '#338938',
   3: '#f21923',
@@ -14,15 +14,15 @@ const colors: {[id:number]:string} = {
   6: '#090982',
   7: '#000000',
   8: '#c0c',
+};
+
+interface IProps {
+  game: Game;
+  box: Box;
 }
 
-interface IProps{
-  game: Game,
-  box: Box,
-}
-
-const MinesCount = ({count}:{count:number}) => {
-  if(!count){
+const MinesCount = ({count}: {count: number}) => {
+  if (!count) {
     return <noscript/>;
   }
   return (
@@ -30,21 +30,20 @@ const MinesCount = ({count}:{count:number}) => {
       style={{color:colors[count]}}
     >{count}</span>
   );
-}
+};
 
-export default observer<IProps>(function({game, box}: IProps){
+export default observer<IProps>(({game, box}: IProps) => {
   const {
     position,
     hasMine,
     isRevealed,
-    isFlagged
+    isFlagged,
   } = box;
   const showRevealed = isRevealed || game.isLost;
 
   const props: React.HTMLProps<HTMLButtonElement> = {
     onClick: () => game.reveal(position),
     onContextMenu: e => {
-      console.log('right click');
       box.isFlagged = !isFlagged;
       e.preventDefault();
     },
@@ -63,4 +62,4 @@ export default observer<IProps>(function({game, box}: IProps){
       )}
     </button>
   );
-})
+});

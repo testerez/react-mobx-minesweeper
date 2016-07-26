@@ -1,12 +1,12 @@
 import Box from './Box';
 import { expect } from 'chai';
-import Game from "./Game";
+import Game from './Game';
 
-function createGame(layout: string[]){
+function createGame(layout: string[]) {
     const boxes = layout
         .join(' ')
         .split(' ')
-        .map((s, i) => new Box(i, s == 'x'));
+        .map((s, i) => new Box(i, s === 'x'));
 
     return new Game(
       {
@@ -36,32 +36,32 @@ describe('MinesGame', () => {
 
     it('creates a 1x1 board', () => {
       const game = new Game({
-        width:1,
-        height:1,
-        mines:1,
+        width: 1,
+        height: 1,
+        mines: 1,
       });
       expect(game.boxes.length).to.equal(1);
-      expect(game.boxes[0].hasMine).to.be.true;
+      expect(game.boxes[0].hasMine).to.equal(true, 'should have a mine');
     });
 
     it('creates a 1x1 board with no mine', () => {
         const game = new Game({
-        width:1,
-        height:1,
-        mines:0,
+        width: 1,
+        height: 1,
+        mines: 0,
       });
-      expect(game.boxes.length).to.equal(1);
-      expect(game.boxes[0].hasMine).to.be.false;
+      expect(game.boxes.length).to.eq(1);
+      expect(game.boxes[0].hasMine).to.eq(false, 'should have no mine');
     });
 
     it('creates a 100x100 board', () => {
       const game = new Game({
-        width:100,
-        height:100,
-        mines:100,
+        width: 100,
+        height: 100,
+        mines: 100,
       });
-      expect(game.boxes.length).to.equal(100*100);
-      expect(game.config.mines).to.equal(100);
+      expect(game.boxes.length).to.eq(100 * 100);
+      expect(game.config.mines).to.eq(100);
     });
 
     it('counts surrounding mines', () => {
@@ -72,7 +72,7 @@ describe('MinesGame', () => {
             'o x x o 0',
         ]);
 
-        const checkCount = (x:number, y:number, expected:number) => {
+        const checkCount = (x: number, y: number, expected: number) => {
             const position = game.getBox(x, y).position;
             expect(game.getAreaMinesCount(position)).to.equals(expected);
         };
@@ -91,11 +91,11 @@ describe('MinesGame', () => {
             'o o x',
             'o o x',
         ]);
-        expect(game.isWon).to.be.false;
-        expect(game.isLost).to.be.false;
+        expect(game.isWon).to.eq(false, 'isWon');
+        expect(game.isLost).to.eq(false, 'isLost');
         [1, 2, 3, 4, 6, 7].forEach(i => game.reveal(i));
-        expect(game.isWon).to.be.true;
-        expect(game.isLost).to.be.false;
+        expect(game.isWon).to.eq(true, 'isWon');
+        expect(game.isLost).to.eq(false, 'isLost');
     });
 
     it('looses', () => {
@@ -104,18 +104,18 @@ describe('MinesGame', () => {
             'o o x',
             'o o x',
         ]);
-        expect(game.isWon).to.be.false;
-        expect(game.isLost).to.be.false;
+        expect(game.isWon).to.eq(false, 'isWon');
+        expect(game.isLost).to.eq(false, 'isLost');
         game.reveal(0);
-        expect(game.isWon).to.be.false;
-        expect(game.isLost).to.be.true;
+        expect(game.isWon).to.eq(false, 'isWon');
+        expect(game.isLost).to.eq(true, 'isLost');
     });
 
     it('gets lines', () => {
         const game = new Game({
-          width:5,
-          height:10,
-          mines:10,
+          width: 5,
+          height: 10,
+          mines: 10,
         });
         const lines = game.getLines();
         expect(lines.length).to.eq(10);

@@ -1,14 +1,14 @@
 import Box from './Box';
 import {chain, range, every} from 'lodash';
 import {IGameConfig} from './Config';
-import {observable, computed, action} from 'mobx';
+import {observable, action} from 'mobx';
 
-export default class MinesGame {
+export default class {
   @observable isWon = false;
   @observable isLost = false;
   @observable boxes: Box[];
 
-  isOver(){
+  isOver() {
     return this.isWon || this.isLost;
   }
 
@@ -28,14 +28,14 @@ export default class MinesGame {
         .shuffle()
         .map((hasMine, i) => new Box(i, hasMine))
         .value();
-    } else if (boxes.length != config.width * config.height) {
+    } else if (boxes.length !== config.width * config.height) {
       throw new Error('Invalid boxes length');
     }
     this.boxes = boxes;
   }
 
-  private revealArround(position:number){
-    if(this.getAreaMinesCount(position)){
+  private revealArround(position: number) {
+    if (this.getAreaMinesCount(position)) {
       return;
     }
     this.getAreaboxes(position)
@@ -48,7 +48,7 @@ export default class MinesGame {
 
   @action
   reveal(position: number) {
-    if(this.isOver()){
+    if (this.isOver()) {
       return;
     }
     const box = this.boxes[position];
@@ -65,7 +65,7 @@ export default class MinesGame {
 
     // You win?
     this.isWon = every(this.boxes, s =>
-      s.isRevealed == !s.hasMine
+      s.isRevealed === !s.hasMine
     );
   }
 
@@ -81,8 +81,8 @@ export default class MinesGame {
     const yMax = Math.min(height - 1, y + 1);
 
     const result: Box[] = [];
-    for (let x2 = xMin; x2 <= xMax; x2++) {
-      for (let y2 = yMin; y2 <= yMax; y2++) {
+    for (let x2 = xMin; x2 <= xMax; x2 += 1) {
+      for (let y2 = yMin; y2 <= yMax; y2 += 1) {
         result.push(this.getBox(x2, y2));
       }
     }
@@ -108,7 +108,7 @@ export default class MinesGame {
   }
 
   positionToXy(position: number) {
-    const {width, height} = this.config;
+    const {width} = this.config;
     return {
       x: position % width,
       y: Math.floor(position / width),
@@ -121,11 +121,11 @@ export default class MinesGame {
     ];
   }
 
-  getLines(){
+  getLines() {
     const {width, height} = this.config;
     return range(0, height).map(y => {
       const start = y * width;
-      return this.boxes.slice(start, start + width)
+      return this.boxes.slice(start, start + width);
     });
   }
 }
