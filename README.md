@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/testerez/react-ts.svg?branch=master)](https://travis-ci.org/testerez/react-ts)
+
 Setup: `npm i && npm start`
 
 Todo:
