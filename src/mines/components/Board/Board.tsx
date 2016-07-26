@@ -1,7 +1,7 @@
 import * as React from 'react';
-import Game from '../data/Game';
 import {observer} from 'mobx-react';
-import Box from './Box/Box';
+import Game from '../../data/Game';
+import Box from '../Box/Box';
 const styles = require('./Board.scss');
 
 

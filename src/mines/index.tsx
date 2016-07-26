@@ -1,21 +1,13 @@
 import * as React from 'react';
-import Menu from './components/Menu/Menu';
-import Board from './components/Board';
+import Game from './components/Game/Game';
 import Data from './data/Data';
 import {observer} from 'mobx-react';
-const styles = require('./game.scss');
 
 @observer
 export default class extends React.Component<{}, {}> {
   data = new Data();
 
   render() {
-    const data = this.data;
-    return (
-      <div className={styles.game}>
-        <Menu data={data}/>
-        <Board game={data.game} />
-      </div>
-    );
+    return <Game data={this.data}/>;
   }
 }
