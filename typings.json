@@ -4,11 +4,12 @@
     "core-decorators": "registry:dt/core-decorators#0.10.0+20160316155526",
     "core-js": "registry:dt/core-js#0.0.0+20160602141332",
     "mocha": "registry:dt/mocha#2.2.5+20160720003353",
-   "react": "registry:dt/react#0.14.0+20160526134601",
+    "react": "registry:dt/react#0.14.0+20160526134601",
     "react-dom": "registry:dt/react-dom#0.14.0+20160412154040"
   },
   "dependencies": {
     "chai": "registry:npm/chai#3.5.0+20160415060238",
+    "enzyme": "registry:npm/enzyme#2.2.0+20160322031343",
     "lodash": "registry:npm/lodash#4.0.0+20160701205107"
   }
 }
