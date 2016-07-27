@@ -6,11 +6,14 @@ module.exports = function (config) {
   config.set({
     basePath: '',
     frameworks: ['mocha', 'chai', 'sinon'],
-    files: [specPattern],
+    files: [
+      './src/testSetup.ts',
+      specPattern,
+    ],
     exclude: [
     ],
     preprocessors: {
-      [specPattern]: ['webpack'],
+      '**/*.@(ts|tsx)': ['webpack'],
     },
     webpack: {
       module: webpackConfig.module,

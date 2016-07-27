@@ -1,6 +1,5 @@
 import * as React from 'react';
-import Game from '../../data/Game';
-import Box from '../../data/Box';
+import {Game, Box} from '../../data';
 import {observer} from 'mobx-react';
 import * as classnames from 'classnames';
 const styles = require('./Box.scss');

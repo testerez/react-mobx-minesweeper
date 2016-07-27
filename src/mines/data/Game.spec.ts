@@ -1,22 +1,8 @@
 import Box from './Box';
 import { expect } from 'chai';
 import Game from './Game';
+import {createGame} from '../Common/testHelper';
 
-function createGame(layout: string[]) {
-    const boxes = layout
-        .join(' ')
-        .split(' ')
-        .map((s, i) => new Box(i, s === 'x'));
-
-    return new Game(
-      {
-        width: layout[0].split(' ').length,
-        height: layout.length,
-        mines: boxes.filter(s => s.hasMine).length,
-      },
-      boxes
-    );
-}
 
 describe('MinesGame', () => {
     it('can\'t create invalid board', () => {
