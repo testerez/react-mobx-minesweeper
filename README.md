@@ -11,3 +11,4 @@ Todo:
 - test components
 - drop unused node modules
 - routing
+- use [typed-css-modules](https://github.com/Quramy/typed-css-modules)?
