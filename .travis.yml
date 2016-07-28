@@ -1,4 +1,8 @@
 language: node_js
 after_success:
   - git config --global user.name Travis
+  - $(npm bin)/set-up-ssh \
+      --key "$encrypted_853232ab0902_key" \
+      --iv "$encrypted_853232ab0902_iv" \
+      --path-encrypted-key ".travis/github_deploy_key.enc"
   - npm run deploy
