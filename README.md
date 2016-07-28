@@ -2,6 +2,8 @@
 
 Setup: `npm i && npm start`
 
+[Demo](https://testerez.github.io/react-ts/)
+
 Todo:
 - precommit lint
 - end to end tests

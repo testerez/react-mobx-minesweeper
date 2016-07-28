@@ -4,9 +4,9 @@
   "description": "A react starter project using typescript",
   "main": "dist/index.html",
   "scripts": {
-    "start": "webpack-dev-server --hot --inline",
-    "build": "webpack",
-    "deploy": "npm run build && surge -p public -d somedomain.com",
+    "start": "rm -rf dist && webpack-dev-server --hot --inline",
+    "build": "rm -rf dist && webpack",
+    "deploy": "npm run build && gh-pages -d dist",
     "test": "karma start  --single-run",
     "test:w": "karma start",
     "postinstall": "typings install",

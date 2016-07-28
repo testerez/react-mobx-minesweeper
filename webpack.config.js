@@ -17,7 +17,7 @@ module.exports = {
     filename: "app.js",
     cssFilename: "app.css",
     hash: false,
-    publicPath: "/"
+    publicPath: ""
   },
   resolve: {
     extensions: [
