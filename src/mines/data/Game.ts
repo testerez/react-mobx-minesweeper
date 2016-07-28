@@ -34,6 +34,7 @@ export default class {
     this.boxes = boxes;
   }
 
+  @action
   private revealArround(position: number) {
     if (this.getAreaMinesCount(position)) {
       return;
@@ -53,20 +54,24 @@ export default class {
     }
     const box = this.boxes[position];
 
-    box.isRevealed = true;
+    action(() => {
 
-    // You loose?
-    if (box.hasMine) {
-      this.isLost = true;
-      return;
-    }
 
-    this.revealArround(position);
+      box.isRevealed = true;
 
-    // You win?
-    this.isWon = every(this.boxes, s =>
-      s.isRevealed === !s.hasMine
-    );
+      // You loose?
+      if (box.hasMine) {
+        this.isLost = true;
+        return;
+      }
+
+      this.revealArround(position);
+
+      // You win?
+      this.isWon = every(this.boxes, s =>
+        s.isRevealed === !s.hasMine
+      );
+    })();
   }
 
 

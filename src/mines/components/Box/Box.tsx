@@ -43,7 +43,7 @@ export default observer<IProps>(({game, box}: IProps) => {
   const props: React.HTMLProps<HTMLButtonElement> = {
     onClick: () => game.reveal(position),
     onContextMenu: e => {
-      box.isFlagged = !isFlagged;
+      box.toggleFlag();
       e.preventDefault();
     },
     className: classnames({
