@@ -32,6 +32,10 @@ module.exports = function (config) {
         chunks: false,
       },
     },
+    client: {
+      // Allow to use --grep on `karma start` to filter executed tests list
+      args: config.grep && config.grep !== true && ['--grep', config.grep],
+    },
     reporters: ['progress'],
     port: 9876,
     colors: true,
