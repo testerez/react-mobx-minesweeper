@@ -8,7 +8,6 @@
     "curly": true,
     "eofline": false,
     "forin": true,
-    "function-name": true,
     "import-name": false,
     "indent": false,
     "interface-name": false,

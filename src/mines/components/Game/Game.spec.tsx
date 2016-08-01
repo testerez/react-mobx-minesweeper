@@ -5,16 +5,19 @@ import {createGame} from '../../Common/testHelper';
 import {Data} from '../../data';
 import Game from './Game';
 import Box from '../Box/Box';
+import {runInAction} from 'mobx';
 
 const boxCss = require('../Box/Box.scss');
 
 function createAndMountGame(layout: string[]) {
-    const game = createGame(layout);
     const data = new Data();
-    data.game = game;
+    runInAction(() => {
+      data.game = createGame(layout);
+    });
+
     return {
       wrapper: mount(<Game data={data} />),
-      game,
+      game: data.game,
     };
 }
 

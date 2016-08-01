@@ -1,9 +1,10 @@
 import * as React from 'react';
-import {Game, Box} from '../../data';
+import {Game, Box as BoxData} from '../../data';
 import {observer} from 'mobx-react';
 import * as classnames from 'classnames';
 const styles = require('./Box.scss');
 
+// Colors for surrounding mines count text
 const colors: {[id: number]: string} = {
   1: '#0b24fa',
   2: '#338938',
@@ -17,48 +18,50 @@ const colors: {[id: number]: string} = {
 
 interface IProps {
   game: Game;
-  box: Box;
+  box: BoxData;
 }
 
-const MinesCount = ({count}: {count: number}) => {
-  if (!count) {
-    return <noscript/>;
+@observer
+export default class Box extends React.Component<IProps, any> {
+  onClick = () => {
+    const {game, box} = this.props;
+    game.reveal(box.position);
   }
-  return (
-    <span
-      style={{color:colors[count]}}
-    >{count}</span>
-  );
-};
 
-export default observer<IProps>(({game, box}: IProps) => {
-  const {
-    position,
-    hasMine,
-    isRevealed,
-    isFlagged,
-  } = box;
-  const showRevealed = isRevealed || game.isLost;
+  onContextMenu = (e: any) => {
+    this.props.box.toggleFlag();
+    e.preventDefault();
+  }
 
-  const props: React.HTMLProps<HTMLButtonElement> = {
-    onClick: () => game.reveal(position),
-    onContextMenu: e => {
-      box.toggleFlag();
-      e.preventDefault();
-    },
-    className: classnames({
-      [styles.box]: true,
-      [styles.flag]: isFlagged && !showRevealed,
-      [styles.revealed]: showRevealed,
-      [styles.mine]: hasMine && showRevealed,
-      [styles.fail]: hasMine && isRevealed,
-    }),
-  };
-  return(
-    <button {...props}>
-      {showRevealed && !hasMine && (
-        <MinesCount count={game.getAreaMinesCount(position)}/>
-      )}
-    </button>
-  );
-});
+  render() {
+    const {game, box} = this.props;
+    const {
+      position,
+      hasMine,
+      isRevealed,
+      isFlagged,
+    } = box;
+    const showRevealed = isRevealed || game.isLost;
+
+    const displayedNumber = showRevealed && !hasMine
+      ? game.getAreaMinesCount(position) || null
+      : null;
+    const style = displayedNumber
+      ? {color: colors[displayedNumber]}
+      : undefined;
+
+    const props: React.HTMLProps<HTMLButtonElement> = {
+      onClick: this.onClick,
+      onContextMenu: this.onContextMenu,
+      className: classnames({
+        [styles.box]: true,
+        [styles.flag]: isFlagged && !showRevealed,
+        [styles.revealed]: showRevealed,
+        [styles.mine]: hasMine && showRevealed,
+        [styles.fail]: hasMine && isRevealed,
+      }),
+      style,
+    };
+    return <button {...props}>{displayedNumber}</button>;
+  }
+}
