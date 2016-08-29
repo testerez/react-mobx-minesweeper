@@ -10,7 +10,7 @@ Todo:
 - polyfills
 - isdev
 - fix sourcemap in karma tests
-- test components
 - drop unused node modules
 - routing
 - use [typed-css-modules](https://github.com/Quramy/typed-css-modules)?
+- Fix CSS for non-chrome browsers
