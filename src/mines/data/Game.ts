@@ -54,24 +54,20 @@ export default class Game {
     }
     const box = this.boxes[position];
 
-    action(() => {
+    box.isRevealed = true;
 
+    // You loose?
+    if (box.hasMine) {
+      this.isLost = true;
+      return;
+    }
 
-      box.isRevealed = true;
+    this.revealArround(position);
 
-      // You loose?
-      if (box.hasMine) {
-        this.isLost = true;
-        return;
-      }
-
-      this.revealArround(position);
-
-      // You win?
-      this.isWon = every(this.boxes, s =>
-        s.isRevealed === !s.hasMine
-      );
-    })();
+    // You win?
+    this.isWon = every(this.boxes, s =>
+      s.isRevealed !== s.hasMine
+    );
   }
 
 
