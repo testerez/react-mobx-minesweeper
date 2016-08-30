@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {observer} from 'mobx-react';
-import {Game} from '../../data';
 import Box from '../Box/Box';
+import Game from "../../data/Game";
 const styles = require('./Board.scss');
 
 
@@ -9,7 +9,7 @@ interface IProps {
   game: Game;
 }
 
-export default observer<IProps>(({game}: IProps) => {
+const Board = observer<IProps>(({game}: IProps) => {
   return (
     <div className={styles.board}>{
       game.getLines().map((l, i) => (
@@ -22,3 +22,4 @@ export default observer<IProps>(({game}: IProps) => {
     }</div>
   );
 });
+export default Board;

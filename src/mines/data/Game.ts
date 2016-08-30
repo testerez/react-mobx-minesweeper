@@ -3,7 +3,7 @@ import {chain, range, every} from 'lodash';
 import {IGameConfig} from './Config';
 import {observable, action} from 'mobx';
 
-export default class {
+export default class Game {
   @observable isWon = false;
   @observable isLost = false;
   @observable boxes: Box[];

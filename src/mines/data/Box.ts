@@ -2,7 +2,7 @@ import {observable, action} from 'mobx';
 import {autobind} from 'core-decorators';
 
 @autobind
-export default class{
+export default class Box {
   @observable position: number;
   @observable hasMine: boolean;
   @observable isRevealed = false;

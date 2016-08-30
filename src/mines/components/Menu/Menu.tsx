@@ -9,10 +9,12 @@ interface IProps {
   data: Data;
 }
 
-export default observer(({data} : IProps) => {
+const Menu = observer<IProps>(({data} : IProps) => {
     return (
       <div className={styles.menu}>
         <Smiley game={data.game} onClick={data.newGame} />
       </div>
     );
 });
+
+export default Menu;

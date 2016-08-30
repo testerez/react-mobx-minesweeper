@@ -6,7 +6,7 @@ import {autobind} from 'core-decorators';
 useStrict(true);
 
 @autobind
-export default class{
+export default class Data {
   @observable config = Config.easy;
   @observable game = new Game(this.config);
 

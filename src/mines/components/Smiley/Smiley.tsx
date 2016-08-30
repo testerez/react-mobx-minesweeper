@@ -32,7 +32,7 @@ function getImageUrl(game: Game) {
 }
 
 @observer
-export default class extends React.Component<IProps, IState> {
+export default class Smiley extends React.Component<IProps, IState> {
   render() {
     const {game, onClick} = this.props;
     return (
