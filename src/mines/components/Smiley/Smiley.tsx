@@ -14,7 +14,7 @@ const smileys = {
 
 interface IProps {
   game: Game;
-  onClick: Function;
+  onClick: (e:any) => void;
 }
 
 interface IState {
