@@ -1,16 +1,28 @@
 import Box from './Box';
 import {chain, range, every} from 'lodash';
 import {IGameConfig} from './Config';
-import {observable, action} from 'mobx';
+import {observable, action, computed, autorun} from 'mobx';
 
 export default class Game {
   @observable isWon = false;
   @observable isLost = false;
   @observable boxes: Box[];
+  @observable isStarted = false;
+  @observable timeElapsed = 0;
 
-  isOver() {
+  @computed get isRunning(){
+    return this.isStarted && !this.isOver;
+  }
+  @computed get isOver() {
     return this.isWon || this.isLost;
   }
+  @computed get minesLeft() {
+    return this.config.mines - this.boxes.filter(
+      b => b.isFlagged && !b.isRevealed
+    ).length;
+  }
+  
+  interval: number;
 
   constructor(
     public config: IGameConfig,
@@ -32,6 +44,17 @@ export default class Game {
       throw new Error('Invalid boxes length');
     }
     this.boxes = boxes;
+
+    autorun('startStopTimer', () => {
+      if(this.isRunning && !this.interval){
+        this.interval = setInterval(
+          action(() => this.timeElapsed += 1),
+          1000
+        );
+      }else if(this.interval){
+        clearInterval(this.interval);
+      }
+    });
   }
 
   @action
@@ -49,7 +72,9 @@ export default class Game {
 
   @action
   reveal(position: number) {
-    if (this.isOver()) {
+    this.isStarted = true;
+
+    if (this.isOver) {
       return;
     }
     const box = this.boxes[position];

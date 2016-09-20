@@ -40,7 +40,7 @@ module.exports = {
         'postcss',
         'sass?sourceMap',
       ]},
-      { test: /\.(png|svg)$/, loader: "url?limit=100000" },
+      { test: /\.(png|svg|otf|ttf)$/, loader: "url?limit=100000" },
       { test: /\.jpg$/, loader: "file" },
     ],
   },

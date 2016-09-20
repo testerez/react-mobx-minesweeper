@@ -1,0 +1,31 @@
+@font-face {
+  font-family: digital;
+  src: url('./LCDAT&TPhoneTimeDate.ttf');
+}
+
+.counter {
+  background: #000;
+  position: relative;
+  text-shadow: 0 0 4px rgba(#fc0d1b, 0.2);
+  border: 2px inset;
+  &, .ghost{
+    font-family: digital;
+    color:#fc0d1b;
+    overflow: hidden;
+    font-size: 40px;
+    line-height: 1;
+    letter-spacing: 2px;
+    height: 40px;
+    padding: 1px 0 0 5px;
+    box-sizing: border-box;
+    
+  }
+}
+
+.ghost{
+  text-shadow: none;
+  opacity: 0.4;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
