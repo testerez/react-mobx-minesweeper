@@ -2,4 +2,15 @@
   margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.iconLing{
+  width:40px;
+  opacity: 0.2;
+  cursor: pointer;
+  text-align: center;
+  &:hover{
+    opacity: 0.4;
+  }
 }
