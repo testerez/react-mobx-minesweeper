@@ -3,6 +3,8 @@ import * as ReactDOM from 'react-dom';
 import MinesGame from './mines';
 import DevTools from 'mobx-react-devtools';
 
+require('./css/global.scss');
+
 const mountNode = document.querySelector('#root');
 
 

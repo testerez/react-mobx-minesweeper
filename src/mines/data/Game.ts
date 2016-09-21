@@ -25,7 +25,7 @@ export default class Game {
   interval: number;
 
   constructor(
-    public config: IGameConfig,
+    public readonly config: IGameConfig,
     boxes: Box[] | null = null
   ) {
     const {

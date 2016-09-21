@@ -20,7 +20,9 @@ const Menu = observer<IProps>(({data} : IProps) => {
           <img src={rankingIcon} />
         </a>
         <Smiley game={data.game} onClick={data.newGame} />
-        <a className={styles.iconLing}>
+        <a
+          className={styles.iconLing}
+          onClick={() => data.ui.toggleShowSettings()}>
           <img src={settingsIcon} />
         </a>
         <DigitCounter value={data.game.timeElapsed} digits={3}/>

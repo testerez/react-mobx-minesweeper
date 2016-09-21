@@ -1,6 +1,7 @@
 import * as Config from './Config';
 import Game from './Game';
-import {observable, action, useStrict} from 'mobx';
+import Ui from './Ui';
+import {observable, action, useStrict, ObservableMap} from 'mobx';
 import {autobind} from 'core-decorators';
 
 useStrict(true);
@@ -9,7 +10,13 @@ useStrict(true);
 export default class Data {
   @observable config = Config.easy;
   @observable game = new Game(this.config);
+  @observable ui = new Ui();
 
+  @action setConfig(config: Config.IGameConfig){
+    this.config = config;
+    this.newGame();
+  }
+  
   @action
   newGame() {
     this.game = new Game(this.config);

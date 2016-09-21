@@ -1,0 +1,9 @@
+:global{
+  html {
+    box-sizing: border-box;
+    font-family: monospace;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+}
