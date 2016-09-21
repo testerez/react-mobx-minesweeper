@@ -1,7 +1,7 @@
 @import "../variables.scss";
 
 .box{
-  border: 2px outset;
+  @include outsetBorder(2px);
   background: $background;
   width: $boxSize;
   height: $boxSize;

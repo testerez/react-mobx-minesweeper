@@ -1,5 +1,7 @@
+@import '../variables';
+
 .board{
-  border: 4px inset;
+  @include insetBorder(4px);
   background: #d0d0d0;
   >div{
     display: flex;

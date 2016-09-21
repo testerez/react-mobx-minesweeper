@@ -1,2 +1,24 @@
 $boxSize: 26px;
 $background: #d0d0d0;
+$border: $background;
+
+$borderShadow: darken($background, 20%);
+$borderLight: lighten($background, 12%);
+@mixin insetBorder($w){
+    border: $w solid;
+    border-color:
+        $borderShadow
+        $borderLight
+        $borderLight
+        $borderShadow
+    ;
+}
+@mixin outsetBorder($w){
+    border: $w solid;
+    border-color:
+        $borderLight
+        $borderShadow
+        $borderShadow
+        $borderLight
+    ;
+}

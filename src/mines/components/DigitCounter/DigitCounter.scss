@@ -1,3 +1,5 @@
+@import '../variables';
+
 @font-face {
   font-family: digital;
   src: url('./LCDAT&TPhoneTimeDate.ttf');
@@ -7,7 +9,7 @@
   background: #000;
   position: relative;
   text-shadow: 0 0 4px rgba(#fc0d1b, 0.2);
-  border: 2px inset;
+  @include insetBorder(2px);
   &, .ghost{
     font-family: digital;
     color:#fc0d1b;
