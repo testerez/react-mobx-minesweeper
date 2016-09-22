@@ -12,7 +12,8 @@
     "postinstall": "typings install",
     "check": "npm run check:ts && npm run lint",
     "check:ts": "tsc --noEmit",
-    "lint": "tslint -r node_modules/tslint-microsoft-contrib 'src/**/*.ts' 'src/**/*.tsx'"
+    "lint": "tslint -r node_modules/tslint-microsoft-contrib 'src/**/*.ts' 'src/**/*.tsx'",
+    "tsfmt": "find src | grep '\\.tsx?$' -E | xargs tsfmt -r"
   },
   "author": "Tom Esterez",
   "license": "ISC",
@@ -50,6 +51,7 @@
     "tslint": "^3.13.0",
     "tslint-microsoft-contrib": "^2.0.9",
     "typescript": "^2.0.2",
+    "typescript-formatter": "^2.3.0",
     "typings": "^1.3.2",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.1",
