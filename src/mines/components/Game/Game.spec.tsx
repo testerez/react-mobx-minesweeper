@@ -1,24 +1,24 @@
 import * as React from 'react';
 import { mount } from 'enzyme';
-import {expect} from 'chai';
-import {createGame} from '../../Common/testHelper';
-import {Data} from '../../data';
+import { expect } from 'chai';
+import { createGame } from '../../Common/testHelper';
+import { Data } from '../../data';
 import Game from './Game';
 import Box from '../Box/Box';
-import {runInAction} from 'mobx';
+import { runInAction } from 'mobx';
 
 const boxCss = require('../Box/Box.scss');
 
 function createAndMountGame(layout: string[]) {
-    const data = new Data();
-    runInAction(() => {
-      data.game = createGame(layout);
-    });
+  const data = new Data();
+  runInAction(() => {
+    data.game = createGame(layout);
+  });
 
-    return {
-      wrapper: mount(<Game data={data} />),
-      game: data.game,
-    };
+  return {
+    wrapper: mount(<Game data={data} />),
+    game: data.game,
+  };
 }
 
 describe('<Game />', () => {

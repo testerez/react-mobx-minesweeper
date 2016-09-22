@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
-import {expect} from 'chai';
+import { expect } from 'chai';
 
 import Hello from './Hello';
 

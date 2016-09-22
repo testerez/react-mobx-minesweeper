@@ -9,19 +9,19 @@ export const easy: IGameConfig = {
   width: 10,
   height: 8,
   mines: 10,
-  name: "Easy",
+  name: 'Easy',
 };
 export const medium: IGameConfig = {
   width: 16,
   height: 16,
   mines: 40,
-  name: "Medium",
+  name: 'Medium',
 };
 export const hard: IGameConfig = {
   width: 24,
   height: 24,
   mines: 99,
-  name: "Expert",
+  name: 'Expert',
 };
 
 export const presets = [

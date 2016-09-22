@@ -14,7 +14,7 @@ const smileys = {
 
 interface IProps {
   game: Game;
-  onClick: (e:any) => void;
+  onClick: (e: any) => void;
 }
 
 interface IState {
@@ -45,5 +45,3 @@ export default class Smiley extends React.Component<IProps, IState> {
     );
   }
 }
-
-

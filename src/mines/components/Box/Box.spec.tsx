@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { mount } from 'enzyme';
-import {expect} from 'chai';
-import {createGame} from '../../Common/testHelper';
+import { expect } from 'chai';
+import { createGame } from '../../Common/testHelper';
 import BoxComponent from './Box';
 
 const boxCss = require('../Box/Box.scss');
@@ -11,7 +11,7 @@ describe('<Box />', () => {
     const game = createGame(['o']);
     const box = game.boxes[0];
     const wrapper = mount(
-      <BoxComponent game={game} box={box}/>
+      <BoxComponent game={game} box={box} />
     );
     const button = wrapper.find('button');
     expect(button.hasClass(boxCss.flag)).to.eq(false, 'has flag class');

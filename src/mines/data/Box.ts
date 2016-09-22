@@ -1,5 +1,5 @@
-import {observable, action} from 'mobx';
-import {autobind} from 'core-decorators';
+import { observable, action } from 'mobx';
+import { autobind } from 'core-decorators';
 
 @autobind
 export default class Box {

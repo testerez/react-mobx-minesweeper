@@ -1,11 +1,11 @@
 import * as React from 'react';
-import {Game, Box as BoxData} from '../../data';
-import {observer} from 'mobx-react';
+import { Game, Box as BoxData } from '../../data';
+import { observer } from 'mobx-react';
 import * as classnames from 'classnames';
 const styles = require('./Box.scss');
 
 // Colors for surrounding mines count text
-const colors: {[id: number]: string} = {
+const colors: { [id: number]: string } = {
   1: '#0b24fa',
   2: '#338938',
   3: '#f21923',
@@ -47,7 +47,7 @@ export default class Box extends React.Component<IProps, any> {
       ? game.getAreaMinesCount(position) || null
       : null;
     const style = displayedNumber
-      ? {color: colors[displayedNumber]}
+      ? { color: colors[displayedNumber] }
       : undefined;
 
     const props: React.HTMLProps<HTMLButtonElement> = {

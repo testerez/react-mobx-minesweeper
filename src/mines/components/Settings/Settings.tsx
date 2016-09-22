@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Data from '../../data/Data';
-import {observer} from 'mobx-react';
-import {presets, IGameConfig} from '../../data/Config';
+import { observer } from 'mobx-react';
+import { presets, IGameConfig } from '../../data/Config';
 
 const styles = require('./Settings.scss');
 
@@ -11,16 +11,16 @@ interface IProps {
 
 @observer
 export default class Settings extends React.Component<IProps, any> {
-  setConfig(config: IGameConfig){
+  setConfig(config: IGameConfig) {
     const {data} = this.props;
-    if(data.game.isRunning && !confirm('Quit current game?')){
+    if (data.game.isRunning && !confirm('Quit current game?')) {
       return;
     }
     data.setConfig(config);
     data.ui.toggleShowSettings(false);
   }
 
-  render(){
+  render() {
     return (
       <div className={styles.settings}>
         <div className={styles.content}>
@@ -36,4 +36,4 @@ export default class Settings extends React.Component<IProps, any> {
       </div>
     );
   }
-};
+}

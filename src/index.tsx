@@ -7,7 +7,6 @@ require('./css/global.scss');
 
 const mountNode = document.querySelector('#root');
 
-
 ReactDOM.render((
   <div>
     <MinesGame />

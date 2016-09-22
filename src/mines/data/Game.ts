@@ -1,7 +1,7 @@
 import Box from './Box';
-import {chain, range, every} from 'lodash';
-import {IGameConfig} from './Config';
-import {observable, action, computed, autorun} from 'mobx';
+import { chain, range, every } from 'lodash';
+import { IGameConfig } from './Config';
+import { observable, action, computed, autorun } from 'mobx';
 
 export default class Game {
   @observable isWon = false;
@@ -10,7 +10,7 @@ export default class Game {
   @observable isStarted = false;
   @observable timeElapsed = 0;
 
-  @computed get isRunning(){
+  @computed get isRunning() {
     return this.isStarted && !this.isOver;
   }
   @computed get isOver() {
@@ -21,7 +21,7 @@ export default class Game {
       b => b.isFlagged && !b.isRevealed
     ).length;
   }
-  
+
   interval: number;
 
   constructor(
@@ -46,12 +46,12 @@ export default class Game {
     this.boxes = boxes;
 
     autorun('startStopTimer', () => {
-      if(this.isRunning && !this.interval){
+      if (this.isRunning && !this.interval) {
         this.interval = setInterval(
           action(() => this.timeElapsed += 1),
           1000
         );
-      }else if(this.interval){
+      } else if (this.interval) {
         clearInterval(this.interval);
       }
     });
