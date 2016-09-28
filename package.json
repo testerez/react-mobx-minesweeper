@@ -17,6 +17,8 @@
   "author": "Tom Esterez",
   "license": "ISC",
   "devDependencies": {
+    "@types/react": "^0.14.37",
+    "@types/react-dom": "^0.14.17",
     "autoprefixer": "^6.3.7",
     "awesome-typescript-loader": "^1.1.1",
     "chai": "^3.5.0",
