@@ -23,8 +23,9 @@ module.exports = function (config) {
         // are used only for older React versions and generate
         // errors in build.
         // See: https://github.com/airbnb/enzyme/issues/47#issuecomment-162256140
-        "react/lib/ExecutionEnvironment": "window",
-        "react/lib/ReactContext": "window",
+        'react/lib/ExecutionEnvironment': true,
+        'react/lib/ReactContext': true,
+        'react/addons': true,
       },
     },
     webpackMiddleware: {
