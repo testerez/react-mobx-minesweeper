@@ -16,7 +16,7 @@ function lpad(s: string | number, length: number, c = ' ') {
     : c.repeat(length - s.length) + s;
 }
 
-const Menu = observer<IProps>(({value, digits, className}: IProps) => {
+const DigitCounter = observer<IProps>(({value, digits, className}: IProps) => {
   const negative = value < 0;
   if (negative) {
     value *= -1;
@@ -34,4 +34,4 @@ const Menu = observer<IProps>(({value, digits, className}: IProps) => {
   );
 });
 
-export default Menu;
+export default DigitCounter;
