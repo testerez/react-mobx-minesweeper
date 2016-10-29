@@ -17,6 +17,7 @@
   "author": "Tom Esterez",
   "license": "ISC",
   "devDependencies": {
+    "@types/mocha": "^2.2.32",
     "@types/react": "^0.14.37",
     "@types/react-dom": "^0.14.17",
     "autoprefixer": "^6.3.7",
@@ -37,7 +38,7 @@
     "karma-typescript-preprocessor2": "^1.2.1",
     "karma-webpack": "^1.7.0",
     "mobx-react-devtools": "^4.2.3",
-    "mocha": "^2.5.3",
+    "mocha": "^3.1.2",
     "node-sass": "^3.8.0",
     "npm": "^3.10.5",
     "phantomjs-prebuilt": "^2.1.7",
