@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
     "module": "commonjs",
     "noImplicitAny": true,
     "noImplicitReturns": true,
@@ -9,7 +9,11 @@
     "sourceMap": true,
     "strictNullChecks": true,
     "pretty": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "noEmit": true,
+    "types": [
+      "browser"
+    ]
   },
   "awesomeTypescriptLoaderOptions": {
   },

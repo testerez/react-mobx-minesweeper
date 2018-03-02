@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/testerez/react-ts.svg?branch=master)](https://travis-ci.org/testerez/react-ts)
 
-Setup: `npm i && npm start`
+Setup: `yarn && yarn start`
 
 [Demo](https://testerez.github.io/react-ts/)
 
