@@ -1,4 +1,7 @@
 language: node_js
+node_js:
+  - "iojs"
+  - "8"
 after_success:
   # Add ssh key to allow git push and then deploy to GH pages
   - |
