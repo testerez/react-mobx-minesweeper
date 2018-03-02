@@ -1,5 +1,5 @@
 {
-  "name": "react-ts",
+  "name": "react-mobx-minesweeper",
   "version": "1.0.0",
   "description": "A react starter project using typescript",
   "main": "dist/index.html",
