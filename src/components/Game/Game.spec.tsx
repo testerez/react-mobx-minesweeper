@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { mount } from 'enzyme';
 import { expect } from 'chai';
-import { createGame } from '../../Common/testHelper';
-import { Data } from '../../data';
+import { createGame } from '../../testHelper';
+import { Data } from '../../data/index';
 import Game from './Game';
 import Box from '../Box/Box';
 import { runInAction } from 'mobx';

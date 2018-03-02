@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { Game, Box as BoxData } from '../../data';
+import { Game, Box as BoxData } from '../../data/index';
 import { observer } from 'mobx-react';
-import * as classnames from 'classnames';
+import classnames from 'classnames';
 const styles = require('./Box.scss');
 
 // Colors for surrounding mines count text
@@ -16,13 +16,13 @@ const colors: { [id: number]: string } = {
   8: '#c0c',
 };
 
-interface IProps {
+interface Props {
   game: Game;
   box: BoxData;
 }
 
 @observer
-export default class Box extends React.Component<IProps, any> {
+export default class Box extends React.Component<Props, any> {
   onClick = () => {
     const {game, box} = this.props;
     game.reveal(box.position);
@@ -53,13 +53,13 @@ export default class Box extends React.Component<IProps, any> {
     const props: React.HTMLProps<HTMLButtonElement> = {
       onClick: this.onClick,
       onContextMenu: this.onContextMenu,
-      className: classnames({
-        [styles.box]: true,
-        [styles.flag]: isFlagged && !showRevealed,
-        [styles.revealed]: showRevealed,
-        [styles.mine]: hasMine && showRevealed,
-        [styles.fail]: hasMine && isRevealed,
-      }),
+      className: classnames(
+        styles.box,
+        isFlagged && !showRevealed && styles.flag,
+        showRevealed && styles.revealed,
+        hasMine && showRevealed && styles.mine,
+        hasMine && isRevealed && styles.fail,
+      ),
       style,
     };
     return <button {...props}>{displayedNumber}</button>;

@@ -5,12 +5,12 @@ import { presets, IGameConfig } from '../../data/Config';
 
 const styles = require('./Settings.scss');
 
-interface IProps {
+interface Props {
   data: Data;
 }
 
 @observer
-export default class Settings extends React.Component<IProps, any> {
+export default class Settings extends React.Component<Props, any> {
   setConfig(config: IGameConfig) {
     const {data} = this.props;
     if (data.game.isRunning && !confirm('Quit current game?')) {

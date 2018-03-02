@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import Game from './Game';
-import { createGame } from '../Common/testHelper';
+import { createGame } from '../testHelper';
 
 
 describe('MinesGame', () => {

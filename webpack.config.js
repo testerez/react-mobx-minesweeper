@@ -32,7 +32,7 @@ module.exports = {
   devtool: "source-map",
   module: {
     loaders: [
-      { test: /\.tsx?$/, loader: "react-hot!awesome-typescript" },
+      { test: /\.tsx?$/, loader: "react-hot!ts" },
       { test: /\.json$/, loader: "json" },
       { test: /\.scss$/, loaders: [
         'style?sourceMap',

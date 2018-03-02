@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { mount } from 'enzyme';
 import { expect } from 'chai';
-import { createGame } from '../../Common/testHelper';
+import { createGame } from '../../testHelper';
 import BoxComponent from './Box';
 
 const boxCss = require('../Box/Box.scss');

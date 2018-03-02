@@ -12,13 +12,9 @@ const smileys = {
   normal: require('./happiness-1.svg'),
 };
 
-interface IProps {
+interface Props {
   game: Game;
   onClick: (e: any) => void;
-}
-
-interface IState {
-
 }
 
 function getImageUrl(game: Game) {
@@ -31,17 +27,13 @@ function getImageUrl(game: Game) {
   return smileys.normal;
 }
 
-@observer
-export default class Smiley extends React.Component<IProps, IState> {
-  render() {
-    const {game, onClick} = this.props;
-    return (
-      <button
-        className={styles.smiley}
-        onClick={onClick}
-        >
-        <img src={getImageUrl(game)} role="presentation" />
-      </button>
-    );
-  }
-}
+const Smiley = ({game, onClick}: Props) => (
+  <button
+    className={styles.smiley}
+    onClick={onClick}
+    >
+    <img src={getImageUrl(game)} role="presentation" />
+  </button>
+);
+
+export default observer(Smiley);

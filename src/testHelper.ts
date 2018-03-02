@@ -1,4 +1,4 @@
-import { Game, Box } from '../data';
+import { Game, Box } from './data';
 
 export function createGame(layout: string[]) {
   const boxes = layout

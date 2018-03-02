@@ -3,7 +3,7 @@ import { observer } from 'mobx-react';
 
 const styles = require('./DigitCounter.scss');
 
-interface IProps {
+interface Props {
   value: number;
   digits: number;
   className?: string;
@@ -16,7 +16,7 @@ function lpad(s: string | number, length: number, c = ' ') {
     : c.repeat(length - s.length) + s;
 }
 
-const DigitCounter = observer<IProps>(({value, digits, className}: IProps) => {
+const DigitCounter = ({value, digits, className}: Props) => {
   const negative = value < 0;
   if (negative) {
     value *= -1;
@@ -32,6 +32,6 @@ const DigitCounter = observer<IProps>(({value, digits, className}: IProps) => {
       </div>
     </div>
   );
-});
+};
 
-export default DigitCounter;
+export default observer(DigitCounter);

@@ -1,9 +1,10 @@
 node_modules
 npm-debug.log
-dist
 
 ### JetBrains IDE
 .idea
 ### Keep those for JS and TS config
 !.idea/misc.xml
 !.idea/typescript-compiler.xml
+.cache
+dist

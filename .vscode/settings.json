@@ -3,9 +3,6 @@
   "typescript.tsdk": "./node_modules/typescript/lib",
   // An additional rules directory
   "tslint.rulesDirectory": "./node_modules/tslint-microsoft-contrib",
-  "files.exclude": {
-    "dist": true
-  },
   "search.exclude": {
     "dist": true
   }

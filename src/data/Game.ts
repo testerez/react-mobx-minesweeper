@@ -22,7 +22,7 @@ export default class Game {
     ).length;
   }
 
-  interval: number;
+  interval?: NodeJS.Timer;
 
   constructor(
     public readonly config: IGameConfig,
