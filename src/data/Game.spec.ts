@@ -1,4 +1,3 @@
-import { expect } from 'chai';
 import Game from './Game';
 import { createGame } from '../testHelper';
 
@@ -10,13 +9,13 @@ describe('MinesGame', () => {
       'o o x x x',
       'o o x o',
       'o x x o 0',
-    ])).to.throw();
+    ])).toThrow();
 
     expect(createGame.bind(null, [
       'x o o x o',
       'o o x x x o',
       'o x x o 0',
-    ])).to.throw();
+    ])).toThrow();
   });
 
   it('creates a 1x1 board', () => {
@@ -26,8 +25,8 @@ describe('MinesGame', () => {
       mines: 1,
       name: 'custom',
     });
-    expect(game.boxes.length).to.equal(1);
-    expect(game.boxes[0].hasMine).to.equal(true, 'should have a mine');
+    expect(game.boxes.length).toEqual(1);
+    expect(game.boxes[0].hasMine).toEqual(true);
   });
 
   it('creates a 1x1 board with no mine', () => {
@@ -37,8 +36,8 @@ describe('MinesGame', () => {
       mines: 0,
       name: 'custom',
     });
-    expect(game.boxes.length).to.eq(1);
-    expect(game.boxes[0].hasMine).to.eq(false, 'should have no mine');
+    expect(game.boxes.length).toEqual(1);
+    expect(game.boxes[0].hasMine).toEqual(false);
   });
 
   it('creates a 100x100 board', () => {
@@ -48,8 +47,8 @@ describe('MinesGame', () => {
       mines: 100,
       name: 'custom',
     });
-    expect(game.boxes.length).to.eq(100 * 100);
-    expect(game.config.mines).to.eq(100);
+    expect(game.boxes.length).toEqual(100 * 100);
+    expect(game.config.mines).toEqual(100);
   });
 
   it('counts surrounding mines', () => {
@@ -62,7 +61,7 @@ describe('MinesGame', () => {
 
     const checkCount = (x: number, y: number, expected: number) => {
       const position = game.getBox(x, y).position;
-      expect(game.getAreaMinesCount(position)).to.equals(expected);
+      expect(game.getAreaMinesCount(position)).toEqual(expected);
     };
 
     checkCount(0, 0, 1);
@@ -79,11 +78,11 @@ describe('MinesGame', () => {
       'o o x',
       'o o x',
     ]);
-    expect(game.isWon).to.eq(false, 'isWon');
-    expect(game.isLost).to.eq(false, 'isLost');
+    expect(game.isWon).toEqual(false);
+    expect(game.isLost).toEqual(false);
     [1, 2, 3, 4, 6, 7].forEach(i => game.reveal(i));
-    expect(game.isWon).to.eq(true, 'isWon');
-    expect(game.isLost).to.eq(false, 'isLost');
+    expect(game.isWon).toEqual(true);
+    expect(game.isLost).toEqual(false);
   });
 
   it('looses', () => {
@@ -92,11 +91,11 @@ describe('MinesGame', () => {
       'o o x',
       'o o x',
     ]);
-    expect(game.isWon).to.eq(false, 'isWon');
-    expect(game.isLost).to.eq(false, 'isLost');
+    expect(game.isWon).toEqual(false);
+    expect(game.isLost).toEqual(false);
     game.reveal(0);
-    expect(game.isWon).to.eq(false, 'isWon');
-    expect(game.isLost).to.eq(true, 'isLost');
+    expect(game.isWon).toEqual(false);
+    expect(game.isLost).toEqual(true);
   });
 
   it('gets lines', () => {
@@ -107,7 +106,7 @@ describe('MinesGame', () => {
       name: 'custom',
     });
     const lines = game.getLines();
-    expect(lines.length).to.eq(10);
-    lines.forEach(l => expect(l.length).to.eq(5));
+    expect(lines.length).toEqual(10);
+    lines.forEach(l => expect(l.length).toEqual(5));
   });
 });

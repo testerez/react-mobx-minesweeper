@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { mount } from 'enzyme';
-import { expect } from 'chai';
 import { createGame } from '../../testHelper';
 import { Data } from '../../data/index';
 import Game from './Game';
@@ -29,17 +28,17 @@ describe('<Game />', () => {
     ]);
     const boxes = wrapper.find(Box);
 
-    expect(boxes).to.have.length(4);
-    expect(wrapper.find(`.${boxCss.revealed}`)).to.have.length(0);
+    expect(boxes).toHaveLength(4);
+    expect(wrapper.find(`.${boxCss.revealed}`)).toHaveLength(0);
 
     boxes.at(1).simulate('click');
     boxes.at(2).simulate('click');
     // Once game is won, click on mine as no effect
     boxes.at(3).simulate('click');
 
-    expect(wrapper.find(`.${boxCss.revealed}`)).to.have.length(2);
-    expect(game.isWon).to.eq(true, 'isWon');
-    expect(game.isLost).to.eq(false, 'isLost');
+    expect(wrapper.find(`.${boxCss.revealed}`)).toHaveLength(2);
+    expect(game.isWon).toEqual(true);
+    expect(game.isLost).toEqual(false);
   });
 
   it('looses', () => {
@@ -49,13 +48,13 @@ describe('<Game />', () => {
     ]);
     const boxes = wrapper.find(Box);
 
-    expect(boxes).to.have.length(4);
-    expect(wrapper.find(`.${boxCss.revealed}`)).to.have.length(0);
+    expect(boxes).toHaveLength(4);
+    expect(wrapper.find(`.${boxCss.revealed}`)).toHaveLength(0);
 
     boxes.at(0).simulate('click');
 
-    expect(wrapper.find(`.${boxCss.revealed}`)).to.have.length(4);
-    expect(game.isWon).to.eq(false, 'isWon');
-    expect(game.isLost).to.eq(true, 'isLost');
+    expect(wrapper.find(`.${boxCss.revealed}`).length).toEqual(4);
+    expect(game.isWon).toEqual(false);
+    expect(game.isLost).toEqual(true);
   });
 });

@@ -9,7 +9,6 @@ Todo:
 - end to end tests
 - polyfills
 - isdev
-- fix sourcemap in karma tests
 - drop unused node modules
 - routing
 - use [typed-css-modules](https://github.com/Quramy/typed-css-modules)?

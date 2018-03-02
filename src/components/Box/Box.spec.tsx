@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { mount } from 'enzyme';
-import { expect } from 'chai';
 import { createGame } from '../../testHelper';
 import BoxComponent from './Box';
 
@@ -11,12 +10,13 @@ describe('<Box />', () => {
     const game = createGame(['o']);
     const box = game.boxes[0];
     const wrapper = mount(
-      <BoxComponent game={game} box={box} />
+      <BoxComponent game={game} box={box} />,
     );
     const button = wrapper.find('button');
-    expect(button.hasClass(boxCss.flag)).to.eq(false, 'has flag class');
+    expect(button.hasClass(boxCss.flag)).toEqual(false);
     button.simulate('contextmenu');
-    expect(button.hasClass(boxCss.flag)).to.eq(true, 'has flag class');
-    expect(box.isFlagged).to.eq(true, 'isFlagged');
+    wrapper.update();
+    expect(button.render().hasClass(boxCss.flag)).toEqual(true);
+    expect(box.isFlagged).toEqual(true);
   });
 });
