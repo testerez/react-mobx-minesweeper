@@ -8,11 +8,11 @@ const styles = require('./Menu.scss');
 const rankingIcon = require('./list-ordered.svg');
 const settingsIcon = require('./settings.svg');
 
-interface IProps {
+interface Props {
   data: Data;
 }
 
-const Menu = ({data}: IProps) => (
+const Menu = ({data}: Props) => (
   <div className={styles.menu}>
     <DigitCounter value={data.game.minesLeft} digits={3} />
     <a className={styles.iconLing}>
