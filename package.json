@@ -17,19 +17,18 @@
   "author": "Tom Esterez",
   "license": "ISC",
   "dependencies": {
-    "@types/classnames": "2.2.3",
     "@types/core-decorators": "^0.20.0",
     "@types/enzyme": "^3.1.9",
+    "@types/enzyme-adapter-react-16": "^1.0.3",
     "@types/jest": "^22.1.4",
     "@types/lodash": "^4.14.104",
     "@types/react": "^16.0.40",
     "@types/react-dom": "^16.0.4",
-    "classnames": "^2.2.5",
+    "classnames": "^2.2.6",
     "core-decorators": "^0.20.0",
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.7.0",
     "gh-pages": "^1.1.0",
-    "install": "^0.10.4",
     "jest": "^22.4.2",
     "jest-transform-stub": "^1.0.0",
     "lodash": "^4.17.5",
@@ -40,13 +39,11 @@
     "parcel-bundler": "^1.6.2",
     "postcss-modules": "^1.1.0",
     "react": "^16.2.0",
-    "react-addons-test-utils": "^15.6.2",
     "react-dom": "^16.2.0",
-    "react-test-renderer": "^16.2.0",
     "ts-jest": "^22.4.1",
-    "tslint": "^5.9.1",
-    "tslint-microsoft-contrib": "^5.0.3",
-    "typescript": "^2.0.3"
+    "tslint": "^5.11.0",
+    "tslint-microsoft-contrib": "^5.2.1",
+    "typescript": "^3.1.6"
   },
   "jest": {
     "transform": {
@@ -63,6 +60,7 @@
       "json",
       "node"
     ],
-    "setupTestFrameworkScriptFile": "<rootDir>jest/setupTests.ts"
+    "setupTestFrameworkScriptFile": "<rootDir>jest/setupTests.ts",
+    "testURL": "http://localhost"
   }
 }

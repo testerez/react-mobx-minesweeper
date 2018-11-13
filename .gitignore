@@ -8,3 +8,4 @@ npm-debug.log
 !.idea/typescript-compiler.xml
 .cache
 dist
+yarn-error.log

@@ -13,6 +13,6 @@ export function createGame(layout: string[]) {
       mines: boxes.filter(s => s.hasMine).length,
       name: 'custom',
     },
-    boxes
+    boxes,
   );
 }

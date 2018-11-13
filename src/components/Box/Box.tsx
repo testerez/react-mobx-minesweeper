@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Game, Box as BoxData } from '../../data/index';
 import { observer } from 'mobx-react';
-import classnames from 'classnames';
+import { classnames } from '../../classnames';
 const styles = require('./Box.scss');
 
 // Colors for surrounding mines count text
